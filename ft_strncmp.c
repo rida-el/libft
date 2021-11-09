@@ -6,13 +6,12 @@
 /*   By: rel-maza <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/02 14:33:54 by rel-maza          #+#    #+#             */
-/*   Updated: 2021/11/05 15:34:25 by rel-maza         ###   ########.fr       */
+/*   Updated: 2021/11/09 18:10:21 by rel-maza         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-
 #include "libft.h"
 
-int	ft_strncmp(const char *s1,const char *s2, size_t  n)
+int	ft_strncmp(const char *s1, const char *s2, size_t n)
 {
 	size_t	i;
 

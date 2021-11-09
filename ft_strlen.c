@@ -6,12 +6,13 @@
 /*   By: rel-maza <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/01 16:16:21 by rel-maza          #+#    #+#             */
-/*   Updated: 2021/11/05 15:06:24 by rel-maza         ###   ########.fr       */
+/*   Updated: 2021/11/08 10:45:01 by rel-maza         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-//#include "libft.h"
-#include <string.h>
-size_t	ft_strlen(char *s)
+
+#include "libft.h"
+
+size_t	ft_strlen(const char *s)
 {
 	size_t	i;
 

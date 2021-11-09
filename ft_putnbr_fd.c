@@ -1,40 +1,35 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ftsub.c                                            :+:      :+:    :+:   */
+/*   ft_putnbr_fr.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: rel-maza <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/11/07 11:53:50 by rel-maza          #+#    #+#             */
-/*   Updated: 2021/11/07 11:55:28 by rel-maza         ###   ########.fr       */
+/*   Created: 2021/11/09 14:59:18 by rel-maza          #+#    #+#             */
+/*   Updated: 2021/11/09 15:58:17 by rel-maza         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char *ft_substr(char const *s, unsigned int start, size_t len)
+void	ft_putnbr_fd(int n, int fd)
 {
-
-	char *p;
-	unsigned int i;
-	unsigned int j;
-	unsigned int a;
-
-	i = 0;
-	j = start + len;
-	a = start;
-	while(s[a] && a < j)
+	if (n >= 0 && n < 10 )
 	{
-		i++;
-		a++;
+		ft_putchar_fd((n + '0'), fd);
 	}
-	if (len == 0)
-		return (0);
-	p = malloc ((i + 1)  * sizeof(char));
-	if (!p)
-		return (NULL);
-	i = 0;
-	ft_memcpy(p,s);
-	p[i] = '\0';
-	return (p);
+	else if (n == -2147483648 )
+	{
+		write(fd, "-2147483648", 11);
+	}
+	else if (n >= 10)
+	{
+		ft_putnbr_fd((n / 10), fd);
+		ft_putnbr_fd((n % 10), fd);
+	}
+	else if (n < 0)
+	{
+		ft_putchar_fd(('-'), fd);
+		ft_putnbr_fd((n * -1), fd);
+	}
 }

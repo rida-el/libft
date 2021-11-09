@@ -1,49 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strlcat.c                                       :+:      :+:    :+:   */
+/*   ft_strmapi.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: rel-maza <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/11/01 11:06:51 by rel-maza          #+#    #+#             */
-/*   Updated: 2021/11/09 15:52:46 by rel-maza         ###   ########.fr       */
+/*   Created: 2021/11/09 12:51:59 by rel-maza          #+#    #+#             */
+/*   Updated: 2021/11/09 18:06:48 by rel-maza         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+#include"libft.h"
 
-#include "libft.h"
-
-size_t	ft_count(const char *str)
+char	*ft_strmapi(char const *s, char (*f)(unsigned int, char))
 {
-	int	i;
+	unsigned int	i;
+	char			*ptr;
 
 	i = 0;
-	while (str[i] != '\0')
+	ptr = malloc(ft_strlen(s));
+	if (!ptr)
+		return (NULL);
+	while (s[i])
 	{
+		ptr[i] = f(i, s[i]);
 		i++;
 	}
-	return (i);
-}
-
-size_t	ft_strlcat(char *dst, const char *src, size_t dstsize)
-{
-	size_t	i;
-	size_t	j;
-
-	i = 0;
-	while (i < dstsize && *dst)
-	{
-		dst++;
-		i++;
-	}
-	if (i == dstsize)
-		return (i + ft_count(src));
-	j = 0;
-	while (src[j])
-	{
-		if (j < dstsize - i - 1)
-			*dst ++ = src[j];
-		j++;
-	}
-	*dst = 0;
-	return (i + j);
+	ptr[i] = '\0';
+	return (ptr);
 }

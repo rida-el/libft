@@ -6,10 +6,9 @@
 /*   By: rel-maza <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/06 14:28:48 by rel-maza          #+#    #+#             */
-/*   Updated: 2021/11/07 09:25:14 by rel-maza         ###   ########.fr       */
+/*   Updated: 2021/11/09 18:05:32 by rel-maza         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-
 #include "libft.h"
 
 int	ft_count(char *dest)
@@ -43,12 +42,11 @@ char	*ft_strjoin(char const *s1, char const *s2)
 {
 	char	*p;
 
-
 	p = malloc((ft_count((char *) s1) + ft_count((char *) s2)) * sizeof(char));
 	if (p == NULL)
 		return ("");
 	*p = 0;
-	ft_strcat(p,(char *) s1);
-	ft_strcat(p,(char *) s2);
+	ft_strcat(p, (char *) s1);
+	ft_strcat(p, (char *) s2);
 	return (p);
 }
