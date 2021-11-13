@@ -6,12 +6,12 @@
 /*   By: rel-maza <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/06 14:28:48 by rel-maza          #+#    #+#             */
-/*   Updated: 2021/11/09 18:05:32 by rel-maza         ###   ########.fr       */
+/*   Updated: 2021/11/10 11:25:28 by rel-maza         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "libft.h"
 
-int	ft_count(char *dest)
+static int	ft_count(char *dest)
 {
 	int	i;
 
@@ -21,7 +21,7 @@ int	ft_count(char *dest)
 	return (i);
 }
 
-char	*ft_strcat(char *dest, char *src)
+static char	*ft_strcat(char *dest, char *src)
 {
 	int	i;
 	int	d;
@@ -43,6 +43,8 @@ char	*ft_strjoin(char const *s1, char const *s2)
 	char	*p;
 
 	p = malloc((ft_count((char *) s1) + ft_count((char *) s2)) * sizeof(char));
+	if (!p)
+		return (NULL);
 	if (p == NULL)
 		return ("");
 	*p = 0;

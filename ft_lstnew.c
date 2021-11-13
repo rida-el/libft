@@ -1,31 +1,24 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_memcmp.c                                        :+:      :+:    :+:   */
+/*   ft_lstnew.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: rel-maza <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/11/05 13:07:06 by rel-maza          #+#    #+#             */
-/*   Updated: 2021/11/10 11:09:50 by rel-maza         ###   ########.fr       */
+/*   Created: 2021/11/11 17:58:25 by rel-maza          #+#    #+#             */
+/*   Updated: 2021/11/13 08:41:41 by rel-maza         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-
 #include "libft.h"
 
-int	ft_memcmp(const void *s1, const void *s2, size_t n)
+t_list	*ft_lstnew(void *content)
 {
-	size_t			i;
-	unsigned char	*str1;
-	unsigned char	*str2;
-
-	str1 = (unsigned char *) s1;
-	str2 = (unsigned char *) s2;
-	i = 0;
-	while (i < n)
-	{
-		if (str1[i] != str2[i])
-			return (str1[i] - str2[i]);
-		i++;
-	}
-	return (0);
+	t_list *ptr;
+   
+	ptr	= malloc(sizeof(t_list));
+	if (!ptr)
+		return (NULL);
+	(*ptr).content = content;
+	ptr -> next = NULL;
+	return (ptr);
 }

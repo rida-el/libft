@@ -6,7 +6,7 @@
 /*   By: rel-maza <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/09 09:26:22 by rel-maza          #+#    #+#             */
-/*   Updated: 2021/11/09 16:36:23 by rel-maza         ###   ########.fr       */
+/*   Updated: 2021/11/10 14:28:31 by rel-maza         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,6 +50,8 @@ char	*ft_itoa(int n)
 		n = n * -1;
 		len = ft_count(n) + 1;
 		p = malloc (len + 1 * sizeof(char));
+		if (!p)
+			return (NULL);
 		ft_copy(p, n, len);
 		p[0] = '-';
 		return (p);
