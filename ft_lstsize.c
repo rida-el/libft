@@ -6,15 +6,15 @@
 /*   By: rel-maza <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/13 09:10:19 by rel-maza          #+#    #+#             */
-/*   Updated: 2021/11/13 12:18:30 by rel-maza         ###   ########.fr       */
+/*   Updated: 2021/11/14 09:11:08 by rel-maza         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "libft.h"
 
-int ft_lstsize(t_list *lst)
+int	ft_lstsize(t_list *lst)
 {
-	int i;
-	t_list *cur;
+	int		i;
+	t_list	*cur;
 
 	i = 0;
 	cur = lst;
@@ -23,6 +23,5 @@ int ft_lstsize(t_list *lst)
 		i++;
 		cur = cur->next;
 	}	
-	return (i);	
+	return (i);
 }
-

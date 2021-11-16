@@ -6,7 +6,7 @@
 /*   By: rel-maza <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/03 15:12:57 by rel-maza          #+#    #+#             */
-/*   Updated: 2021/11/05 12:26:17 by rel-maza         ###   ########.fr       */
+/*   Updated: 2021/11/14 11:27:45 by rel-maza         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,8 @@ void	*ft_memmove(void *dest, const void *src, size_t len)
 	char	*ls;
 	char	*ld;
 
+	if (dest == NULL && src == NULL)
+		return (0);
 	d = dest;
 	s = (char *)src;
 	if (d < s)

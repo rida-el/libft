@@ -6,13 +6,12 @@
 /*   By: rel-maza <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/13 16:09:43 by rel-maza          #+#    #+#             */
-/*   Updated: 2021/11/13 16:39:43 by rel-maza         ###   ########.fr       */
+/*   Updated: 2021/11/14 09:06:09 by rel-maza         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-
 #include "libft.h"
 
-void ft_lstdelone(t_list *lst, void (*del)(void *))
+void	ft_lstdelone(t_list *lst, void (*del)(void *))
 {
 	del(lst->content);
 	free(lst);

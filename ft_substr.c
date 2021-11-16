@@ -6,7 +6,7 @@
 /*   By: rel-maza <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/06 13:29:18 by rel-maza          #+#    #+#             */
-/*   Updated: 2021/11/10 12:16:23 by rel-maza         ###   ########.fr       */
+/*   Updated: 2021/11/14 11:40:05 by rel-maza         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,6 +27,8 @@ char	*ft_substr(char const *s, unsigned int start, size_t len)
 	unsigned int	se;
 	size_t			size;
 
+	if (s == NULL)
+		return (0);
 	lenght = ft_strlen(s);
 	i = 0;
 	se = start;

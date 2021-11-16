@@ -1,27 +1,37 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_striteri.c                                      :+:      :+:    :+:   */
+/*   ft_lstmap.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: rel-maza <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/11/09 13:36:13 by rel-maza          #+#    #+#             */
-/*   Updated: 2021/11/14 11:31:07 by rel-maza         ###   ########.fr       */
+/*   Created: 2021/11/14 15:39:44 by rel-maza          #+#    #+#             */
+/*   Updated: 2021/11/15 07:55:43 by rel-maza         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-#include"libft.h"
 
-void	ft_striteri(char *s, void (*f)(unsigned int, char*))
+#include "libft.h"
+
+t_list	*ft_lstmap(t_list *lst, void *(*f)(void *), void (*del)(void *))
 {
-	unsigned int	i;
+	t_list	*lst1;
+	t_list	*lst2;
 
-	i = 0;
-	if (s != NULL)
+	if (!lst)
+		return (NULL);
+	lst1 = ft_lstnew(f(lst->content));
+	lst2 = lst1;
+	while (lst->next)
 	{
-		while (s[i])
+		lst = lst->next;
+		lst2->next = ft_lstnew(f(lst->content));
+		if (!(lst2->next))
 		{
-			f(i, &s[i]);
-			i++;
+			ft_lstclear(&lst1, del);
+			free(lst1);
+			return (NULL);
 		}
+		lst2 = lst2->next;
 	}
+	return (lst1);
 }
