@@ -6,7 +6,7 @@
 /*   By: rel-maza <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/15 10:19:02 by rel-maza          #+#    #+#             */
-/*   Updated: 2021/11/15 14:48:35 by rel-maza         ###   ########.fr       */
+/*   Updated: 2021/11/17 19:19:16 by rel-maza         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,7 @@ static int	ft_count_split(char *s, char c)
 			count++;
 			break ;
 		}
-		while (c == s[i])
+		while (c && c == s[i])
 			i++;
 		count++;
 	}
@@ -55,6 +55,8 @@ static char	*ft_word(char *s, char c, char **word)
 
 	count = ft_count_word(s, c);
 	*word = malloc((count + 1) * sizeof(char));
+	if (!word)
+		return (0);
 	(*word)[count] = 0;
 	i = 0;
 	while (i < count)
@@ -62,6 +64,16 @@ static char	*ft_word(char *s, char c, char **word)
 	while (c == *s)
 		s++;
 	return (s);
+}
+
+static int	_free(char **res, int size)
+{
+	while (size--)
+	{
+		free(res[size]);
+	}
+	free(res);
+	return (0);
 }
 
 char	**ft_split(char const *s, char c)
@@ -73,7 +85,7 @@ char	**ft_split(char const *s, char c)
 	if (s == 0)
 		return (NULL);
 	i = 0;
-	while (c == (char) *s)
+	while (c && *s && c == (char) *s)
 		s++;
 	count = ft_count_split((char *)s, c);
 	res = malloc((count + 1) * sizeof(char *));
@@ -84,6 +96,8 @@ char	**ft_split(char const *s, char c)
 	while (i < count)
 	{
 		s = ft_word((char *)s, c, res + i);
+		if (!s)
+			_free(res, i);
 		i++;
 	}
 	return (res);

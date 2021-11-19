@@ -6,26 +6,20 @@
 /*   By: rel-maza <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/13 15:06:43 by rel-maza          #+#    #+#             */
-/*   Updated: 2021/11/14 09:04:11 by rel-maza         ###   ########.fr       */
+/*   Updated: 2021/11/19 08:39:47 by rel-maza         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "libft.h"
 
-void	ft_lstadd_back(t_list **alst, t_list *new)
+void	ft_lstadd_back(t_list **lst, t_list *new)
 {
-	t_list	*cur;
+	t_list	*last;
 
-	if (*alst != NULL && new != NULL)
+	if (*lst == 0)
 	{
-		cur = *alst;
-		while (cur->next)
-			cur = cur->next;
-		cur->next = new;
-		new->next = NULL;
+		*lst = new;
+		return ;
 	}
-	else
-	{
-		*alst = new;
-		new->next = NULL;
-	}		
+	last = ft_lstlast(*lst);
+	last->next = new;
 }
